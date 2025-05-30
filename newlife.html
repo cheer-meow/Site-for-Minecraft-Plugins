@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<html>
+<body>
+  <link rel="stylesheet" href="newlife.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <div class="container">
+    <header>
+      <div class="logo">🛍 Plugins for you</div>
+      <nav>
+        <ul class="menu">
+          <li class="dropdown">
+            <a href="#">BedWars</a>
+          </li>
+          <li class="dropdown">
+            <a href="#">SkyWars</a>
+          </li>
+          <li><a href="#">Sales</a></li>
+          <li><a href="#">Cart 🛒 <span id="cart-count" style="display:none;">0</span></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="welcome">
+      <h1>Here You will Can find plugins for Developer 🌟</h1>
+      <p>We're create the plugin for Minecraft 😉</p>
+      <img src="st.png" alt="Моє фото" class="steve">
+    </section>
+    <h2>BedWars Plugins</h2>
+    <section class="products">
+      <div class="product">
+        <img src="https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/67f51d2b0039a-72715d0.jpeg" alt="">
+        <h3>Start Game</h3>
+        <p>BedWars</p>
+        <p class="price">Ціна: 2500 грн</p>
+        <button class="add-to-cart">Додати до кошика</button>
+      </div>
+      <div class="product">
+        <img src="https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/67b884ad63626-72715d0.jpeg" alt="">
+        <h3>End Game</h3>
+        <p>BedWars</p>
+        <p class="price">Ціна: 2500 грн</p>
+        <button class="add-to-cart">Додати до кошика</button>
+      </div>
+      <div class="product">
+        <img src="https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/67b884ad63626-72715d0.jpeg" alt="">
+        <h3>+LvL</h3>
+        <p>BedWars</p>
+        <p class="price">Ціна: 2500 грн</p>
+        <button class="add-to-cart">Додати до кошика</button>
+      </div>
+      <div class="product">
+        <img src="https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/67b884ad63626-72715d0.jpeg" alt="">
+        <h3>AntiCheat</h3>
+        <p>BedWars</p>
+        <p class="price">Ціна: 2500 грн</p>
+        <button class="add-to-cart">Додати до кошика</button>
+      </div>
+      <div class="product">
+        <img src="https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/67b884ad63626-72715d0.jpeg" alt="">
+        <h3>Menu & Bed</h3>
+        <p>BedWars</p>
+        <p class="price">Ціна: 2500 грн</p>
+        <button class="add-to-cart">Додати до кошика</button>
+      </div>
+      <div class="product">
+        <img src="https://megasport.ua/api/s3/images/megasport-dev/products/3555570144/67b884ad63626-72715d0.jpeg" alt="">
+        <h3>Кросівки</h3>
+        <p>BedWars</p>>
+        <p class="price">Ціна: 2500 грн</p>
+        <button class="add-to-cart">Додати до кошика</button>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; Corporation JKL. Всі права захищені.</p>
+    </footer>
+  </div>
+
+  <script>
+    const cartCountElem = document.getElementById('cart-count');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    let cartCount = 0;
+
+    function updateCartCount() {
+      if (cartCount > 0) {
+        cartCountElem.style.display = 'inline';
+        cartCountElem.textContent = cartCount;
+      } else {
+        cartCountElem.style.display = 'none';
+      }
+    }
+
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        if (cartCount >= 5) {
+          alert('Ви вже додали 5 товарів. Більше додати не можна.');
+          return;
+        }
+
+        cartCount++;
+        updateCartCount();
+
+        if (cartCount === 5) {
+          alert('Ви досягли максимуму — 5 товарів.');
+          addToCartButtons.forEach(btn => {
+            btn.disabled = true;
+            btn.textContent = 'Досягнуто ліміт';
+            btn.style.opacity = '0.6';
+            btn.style.cursor = 'not-allowed';
+          });
+        } else {
+          alert(`Додано товарів: ${cartCount}`);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
